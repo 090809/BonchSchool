@@ -7,18 +7,31 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import '@/assets/scss/fonts.scss'
 import VueScrollTo from 'vue-scrollto'
+import VueYandexMetrika from 'vue-yandex-metrika'
 
 Vue.use(VueScrollTo, {
   duration: 900,
   offset: -105
-})
+});
 
-Vue.use(BootstrapVue)
+Vue.use(BootstrapVue);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+Vue.use(VueYandexMetrika, {
+  id: 55018264,
+  router: Vue.$router,
+  env: process.env.NODE_ENV,
+  options: {
+    clickmap:true,
+    trackLinks:true,
+    accurateTrackBounce:true,
+    webvisor:true
+  }
+});
 
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');

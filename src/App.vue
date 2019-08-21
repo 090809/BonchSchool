@@ -1,14 +1,14 @@
 <template>
   <div>
-    <app-header></app-header>
-    <school></school>
-    <experience></experience>
-    <courses></courses>
-    <study></study>
-    <schedule></schedule>
-    <results></results>
-    <team></team>
-    <my-footer></my-footer>
+    <app-header/>
+    <school/>
+    <experience/>
+    <courses/>
+    <study/>
+    <schedule/>
+    <results/>
+    <team/>
+    <my-footer/>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ import Courses from '@/components/Courses'
 import Experience from '@/components/Experience'
 import MyFooter from '@/components/Footer'
 import Team from '@/components/Team'
-import Geek from '@/components/Geek'
+// import Geek from '@/components/Geek'
 
 export default{
   components: {
@@ -35,7 +35,7 @@ export default{
     Experience,
     MyFooter,
     Team,
-    Geek
+    // Geek
   }
 }
 </script>
