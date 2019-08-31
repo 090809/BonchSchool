@@ -2,34 +2,41 @@
   <div class='courses' id='courses'>
     <div class="container">
       <div class="row">
-        <transition mode="out-in" name="fade">
-          <div :class="{'course1': selectedCourse.course1,
-            'course2': selectedCourse.course2,
-            'course3': selectedCourse.course3,
-            'course4': selectedCourse.course4,
-            'course5': selectedCourse.course5}"
-               class="col-sm-12 offset-sm-0 col-10 offset-1 course__items course1"
-          >
-            <div class="container">
-              <div class="row">
-                <div class="col-xl-7 offset-xl-5 col-lg-8 offset-lg-4 col-12 item">
-                  <h2>Направления обучения</h2>
-                  <ul>
-                    <li
-                      :class="{ active: course === selectedCourse, active2: selectedCourse.first === index }"
-                      :key='course.id'
-                      @click='selectedCourse = course'
-                      v-for='(course, index) in courses'>
-                      {{course.title}}
-                    </li>
-                  </ul>
-                  <p>{{selectedCourse.content}}</p>
-                  <!-- <img :src="course.img: require('./../assets/course-1.svg')" class='' alt="">  -->
-                </div>
+        <div class="col-sm-12 offset-sm-0 col-10 offset-1 course__items">
+          <transition mode="in-out" name="in-out-translate-fade">
+            <img class="course-img" v-show="selectedCourse.id === 1" alt="" src="~/assets/img/course-1.jpg"/>
+          </transition>
+          <transition mode="in-out" name="in-out-translate-fade">
+            <img class="course-img" v-show="selectedCourse.id === 2" alt="" src="~/assets/img/course-2.jpg"/>
+          </transition>
+          <transition mode="in-out" name="in-out-translate-fade">
+            <img class="course-img" v-show="selectedCourse.id === 3" alt="" src="~/assets/img/course-3.jpg"/>
+          </transition>
+          <transition mode="in-out" name="in-out-translate-fade">
+            <img class="course-img" v-show="selectedCourse.id === 4" alt="" src="~/assets/img/course-4.jpg"/>
+          </transition>
+          <transition mode="in-out" name="in-out-translate-fade">
+            <img class="course-img" v-show="selectedCourse.id === 5" alt="" src="~/assets/img/course-5.jpg"/>
+          </transition>
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-7 offset-xl-5 col-lg-8 offset-lg-4 col-12 item">
+                <h2>Направления обучения</h2>
+                <ul>
+                  <li
+                    :class="{ active: course === selectedCourse, active2: selectedCourse.first === index }"
+                    :key='course.id'
+                    @click='selectedCourse = course'
+                    v-for='(course, index) in courses'>
+                    {{course.title}}
+                  </li>
+                </ul>
+                <p>{{selectedCourse.content}}</p>
+                <!-- <img :src="course.img: require('./../assets/course-1.svg')" class='' alt="">  -->
               </div>
             </div>
           </div>
-        </transition>
+        </div>
       </div>
     </div>
   </div>
@@ -44,31 +51,31 @@
             id: 1,
             title: 'Front-End',
             content: 'Создание интерфейсов, с которыми будут взаимодействовать пользователи, верстка сайтов по современным стандартам, обучение основам JavaScript, HTML, CSS.',
-            course1: true
+            course1: true,
           },
           {
             id: 2,
             title: 'Back-End',
             content: 'Направление, в рамках которого проектируется и разрабатывается логика web-приложения, изучение основ Laravel, CRUD, MySQL.',
-            course2: true
+            course2: true,
           },
           {
             id: 3,
             title: 'Mobile',
             content: 'Направление по разработке нативных приложений на платформу Android с использованием передового языка программирования Kotlin. Также будут изучены возможности хранения данных, работа с JSON (сервером) и другими фичами.',
-            course3: true
+            course3: true,
           },
           {
             id: 4,
             title: 'Design',
             content: 'Проектирование интерфейсов от "А" до "Я". Здесь ты наконец-то научишься отличать UX от UI, освоишь Figma и попробуешь себя во всех основных этапах работы web-дизайнера.',
-            course4: true
+            course4: true,
           },
           {
             id: 5,
             title: 'SMM',
             content: 'Мы научим не только создавать контент, оформлять и продвигать контент, но и взаимодействовать с алгоритмами социальных сетей так, чтобы они работали на тебя. Подготовлено совместно с Гуманитарным Факультетом СПБГУТ.',
-            course5: true
+            course5: true,
           }
         ],
         selectedCourse: {
@@ -76,7 +83,8 @@
           title: 'Front-End',
           content: 'Создание интерфейсов, с которыми будут взаимодействовать пользователи, верстка сайтов по современным стандартам, обучение основам JavaScript, HTML, CSS.',
           course1: true,
-          first: 0
+          first: 0,
+          src: '/assets/img/course-1.jpg',
         },
       }
     },
@@ -85,6 +93,21 @@
 </script>
 
 <style lang='scss' scoped>
+  .in-out-translate-fade {
+    &-enter-active, &-leave-active {
+      transition: all .5s;
+    }
+    &-enter, &-leave-active {
+      opacity: 0;
+    }
+    &-enter {
+      transform: translateX(100px);
+    }
+    &-leave-active {
+      transform: translateX(-100px);
+    }
+  }
+
   .courses {
     margin-top: 60px;
     margin-bottom: 20px;
@@ -99,24 +122,9 @@
     // background: linear-gradient(300.85deg, #57944F 3.8%, #97B730 90.98%);
   }
 
-  .course1 {
-    background-image: url('../assets/img/course-4.jpg');
-  }
-
-  .course2 {
-    background-image: url('../assets/img/course-1.jpg');
-  }
-
-  .course3 {
-    background-image: url('../assets/img/course-3.jpg');
-  }
-
-  .course4 {
-    background-image: url('../assets/img/course-2.jpg');
-  }
-
-  .course5 {
-    background-image: url('../assets/img/course-5.jpg');
+  .course-img {
+    position: absolute;
+    border-radius: 40px;
   }
 
   .item {
