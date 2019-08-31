@@ -22,7 +22,7 @@ export default {
         property: "og:description",
         content: "Образовательный проект от студентов студентам, призванный распространить любовь к современным технологиям и IT-разработке, передать опыт, знания и просто с пользой провести время!"
       },
-      {property: "og:image", content: "https://bonch.dev/img/og.image.logo.png"},
+      {property: "og:image", content: "https://bonch.dev/og.image.logo.png"},
       {property: "og:video:width", content: "461"},
       {property: "og:video:height", content: "196"},
     ],
