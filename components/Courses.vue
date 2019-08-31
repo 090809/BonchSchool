@@ -123,6 +123,8 @@
   }
 
   .course-img {
+    min-height: 100%;
+    width: auto;
     position: absolute;
     border-radius: 40px;
   }
