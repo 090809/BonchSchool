@@ -2,7 +2,7 @@
   <div class='courses' id='courses'>
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 offset-sm-0 col-10 offset-1 course__items">
+        <div class="col-sm-12 offset-sm-0 col-10 offset-1 course__items overflow-hidden">
           <transition mode="in-out" name="in-out-translate-fade">
             <img class="course-img" v-show="selectedCourse.id === 1" alt="" src="~/assets/img/course-1.jpg"/>
           </transition>
