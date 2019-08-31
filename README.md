@@ -1,29 +1,22 @@
-# bonchdevschool
+# bonch-school-nuxt
 
-## Project setup
-```
-npm install
-```
+> Образовательный проект от студентов студентам, призванный распространить любовь к современным технологиям и IT-разработке, передать опыт, знания и просто с пользой провести время!
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Build Setup
 
-### Compiles and minifies for production
-```
-npm run build
-```
+``` bash
+# install dependencies
+$ npm run install
 
-### Run your tests
-```
-npm run test
-```
+# serve with hot reload at localhost:3000
+$ npm run dev
 
-### Lints and fixes files
-```
-npm run lint
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
